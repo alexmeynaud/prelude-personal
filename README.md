@@ -1,4 +1,4 @@
 prelude-personal
 ================
 
-Personal GNU Emacs configuration
+Emacs configuration on top of [prelude](https://github.com/bbatsov/prelude)

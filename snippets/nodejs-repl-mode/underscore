@@ -1,0 +1,4 @@
+# name: underscore
+# key: _
+# --
+var _u = require("/home/alex/github/underscore/underscore");

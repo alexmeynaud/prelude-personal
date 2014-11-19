@@ -1,0 +1,4 @@
+# contributor: Alexandre Meynaud
+# key: log
+# --
+private Logger logger = LoggerFactory.getLogger($0.class);

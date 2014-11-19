@@ -1,0 +1,4 @@
+# contributor: Alexandre Meynaud
+# key: error
+# --
+logger.error("$0");

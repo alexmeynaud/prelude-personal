@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<locatingRules xmlns="http://thaiopensource.com/ns/locating-rules/1.0">
+  <uri pattern="pom.xml" uri="file:///home/alex/.emacs.d/personal/schemas/maven-v4_0_0.rnc"/>
+  <uri pattern="build.xml" uri="file:///home/alex/.emacs.d/personal/schemas/ant-1.6.rnc"/>
+  <uri pattern="*alarms.xml" uri="file:///home/alex/.emacs.d/personal/schemas/uca-expert-alarm.rnc"/>
+  <uri pattern="filters.xml"
+       uri="file:///home/alex/.emacs.d/schemas/personal/uca-expert-filter.rnc"/>
+  <uri pattern="*filters.xml"
+       uri="file:///home/alex/.emacs.d/schemas/personal/uca-expert-filter.rnc"/>
+</locatingRules>

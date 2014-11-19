@@ -1,0 +1,4 @@
+# contributor: Alexandre Meynaud
+# key: info
+# --
+logger.info("$0")

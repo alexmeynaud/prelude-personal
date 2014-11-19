@@ -1,0 +1,4 @@
+# contributor: Alexandre Meynaud
+# key: debug
+# --
+if (logger.isDebugEnabled()) logger.debug("$0");

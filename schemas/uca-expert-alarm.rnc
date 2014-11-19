@@ -1,0 +1,178 @@
+default namespace = "http://hp.com/uca/expert/x733Alarm"
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace rng = "http://relaxng.org/ns/structure/1.0"
+
+#
+
+# ELEMENTS DEFINITION
+
+#
+
+# This XSD is used in UCA Expert with no automatic XSD validation
+start |= AlarmAttributeValueChangeInterface
+AlarmAttributeValueChangeInterface =
+  element AlarmAttributeValueChangeInterface {
+    alarmBaseInterface,
+    element originatingManagedEntity { xsd:string }?,
+    originatingManagedEntityStructure?,
+    element sourceIndicator { xsd:string }?,
+    element alarmType { AlarmType }?,
+    element probableCause { xsd:string }?,
+    (element perceivedSeverity { PerceivedSeverity }?)
+    >> a:documentation [
+         "\x{a}" ~
+         "            default value is : NOT_ACKNOWLEDGED"
+       ],
+    element operatorState { OperatorState }?,
+    element additionalText { xsd:string }?,
+    attributeChanges?
+  }
+start |= AlarmBaseInterface
+AlarmBaseInterface = element AlarmBaseInterface { alarmBaseInterface }
+start |= AlarmCreationInterface
+AlarmCreationInterface =
+  element AlarmCreationInterface {
+    alarmBaseInterface,
+    element originatingManagedEntity { xsd:string },
+    originatingManagedEntityStructure?,
+    element alarmType { AlarmType },
+    element probableCause { xsd:string },
+    element perceivedSeverity { PerceivedSeverity }
+    >> a:documentation [
+         "\x{a}" ~
+         "            default value is : NOT_CLEARED"
+       ],
+    element networkState { NetworkState }
+    >> a:documentation [
+         "\x{a}" ~
+         "            default value is : NOT_ACKNOWLEDGED"
+       ],
+    element operatorState { OperatorState }
+    >> a:documentation [
+         "\x{a}" ~
+         "            default value is : NOT_HANDLED"
+       ],
+    element problemState { ProblemState },
+    element problemInformation { xsd:string }?,
+    element specificProblem { xsd:string }?,
+    element additionalInformation { xsd:string }?,
+    element additionalText { xsd:string }?,
+    element proposedRepairActions { xsd:string }?,
+    element notificationIdentifier { xsd:string }?,
+    element correlationNotificationIdentifiers { xsd:string }?,
+    element parents { xsd:string }?,
+    element children { xsd:string }?,
+    customFields?,
+    element alarmAdditionalData { xsd:string }?
+  }
+start |= AlarmDeletionInterface
+AlarmDeletionInterface =
+  element AlarmDeletionInterface {
+    alarmBaseInterface,
+    element originatingManagedEntity { xsd:string },
+    originatingManagedEntityStructure?,
+    (element sourceIndicator { xsd:string }?)
+    >> a:documentation [
+         "\x{a}" ~
+         "            default value is : NOT_ACKNOWLEDGED"
+       ],
+    element operatorState { OperatorState }?,
+    element additionalText { xsd:string }
+  }
+start |= AlarmStateChangeInterface
+AlarmStateChangeInterface =
+  element AlarmStateChangeInterface {
+    alarmBaseInterface,
+    element originatingManagedEntity { xsd:string }?,
+    originatingManagedEntityStructure?,
+    element sourceIndicator { xsd:string }?,
+    element alarmType { AlarmType }?,
+    element probableCause { xsd:string }?,
+    (element perceivedSeverity { PerceivedSeverity }?)
+    >> a:documentation [
+         "\x{a}" ~
+         "            default value is : NOT_ACKNOWLEDGED"
+       ],
+    element operatorState { OperatorState }?,
+    element additionalText { xsd:string }?,
+    attributeChanges?,
+    clearanceAlarmIdentifierList?
+  }
+start |= Alarms
+Alarms =
+  element Alarms {
+    (AlarmDeletionInterface
+     | AlarmAttributeValueChangeInterface
+     | AlarmCreationInterface
+     | AlarmStateChangeInterface
+     | EndSynchronizationInterface
+     | BeginSynchronizationInterface)*
+  }
+start |= BeginSynchronizationInterface
+BeginSynchronizationInterface =
+  element BeginSynchronizationInterface {
+    alarmBaseInterface,
+    element sourceIdentifier { xsd:string }
+  }
+start |= EndSynchronizationInterface
+EndSynchronizationInterface =
+  element EndSynchronizationInterface {
+    alarmBaseInterface,
+    element sourceIdentifier { xsd:string }
+  }
+start |= alarmIdentifier
+alarmIdentifier =
+  element alarmIdentifier {
+    attribute id { xsd:string }
+  }
+start |= attributeChange
+attributeChange =
+  element attributeChange {
+    attribute oldValue { xsd:string },
+    attribute newValue { xsd:string },
+    attribute name { xsd:string }
+  }
+start |= attributeChanges
+attributeChanges = element attributeChanges { attributeChange+ }
+start |= classInstance
+classInstance =
+  element classInstance {
+    attribute instance { xsd:string }?,
+    attribute clazz { xsd:string }
+  }
+start |= clearanceAlarmIdentifierList
+clearanceAlarmIdentifierList =
+  element clearanceAlarmIdentifierList { alarmIdentifier+ }
+start |= customField
+customField =
+  element customField {
+    attribute value { xsd:string },
+    attribute name { xsd:string }
+  }
+start |= customFields
+customFields = element customFields { customField+ }
+start |= originatingManagedEntityStructure
+originatingManagedEntityStructure =
+  element originatingManagedEntityStructure { classInstance+ }
+alarmBaseInterface =
+  element identifier { xsd:string },
+  element sourceIdentifier { xsd:string },
+  element alarmRaisedTime { xsd:dateTime }?,
+  element targetValuePack { xsd:string }?
+AlarmType =
+  "UNKNOWN_ALARM_TYPE"
+  | "COMMUNICATIONS_ALARM"
+  | "PROCESSING_ERROR_ALARM"
+  | "ENVIRONMENTAL_ALARM"
+  | "QUALITY_OF_SERVICE_ALARM"
+  | "EQUIPMENT_ALARM"
+  | "INTEGRITY_VIOLATION"
+  | "OPERATIONAL_VIOLATION"
+  | "PHYSICAL_VIOLATION"
+  | "SECURITY_VIOLATION"
+  | "TIME_DOMAIN_VIOLATION"
+PerceivedSeverity =
+  "INDETERMINATE" | "WARNING" | "MINOR" | "MAJOR" | "CRITICAL" | "CLEAR"
+NetworkState = "NOT_CLEARED" | "CLEARED"
+OperatorState = "NOT_ACKNOWLEDGED" | "ACKNOWLEDGED" | "TERMINATED"
+ProblemState = "NOT_HANDLED" | "HANDLED" | "CLOSED"

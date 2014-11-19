@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rng:grammar xmlns:rng="http://relaxng.org/ns/structure/1.0" ns="http://hp.com/uca/expert/filter" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+	<rng:start combine="choice">
+<rng:ref name="filters"/>
+</rng:start>
+<rng:define name="filters">
+<rng:element name="filters">
+		
+			
+				<rng:oneOrMore>
+<rng:element name="topFilter">
+<rng:ref name="topFilterType"/>
+</rng:element>
+</rng:oneOrMore>
+			
+		
+	</rng:element>
+</rng:define>
+
+	<rng:define name="topFilterType">
+		
+			<rng:choice>
+				<rng:element name="allCondition">
+<rng:ref name="allConditionType"/>
+</rng:element>
+				<rng:element name="anyCondition">
+<rng:ref name="anyConditionType"/>
+</rng:element>
+				<rng:element name="anyNotCondition">
+<rng:ref name="anyNotConditionType"/>
+</rng:element>
+				<rng:element name="notCondition">
+<rng:ref name="notConditionType"/>
+</rng:element>
+			</rng:choice>
+		
+		<rng:attribute name="name">
+<rng:ref name="string"/>
+</rng:attribute>
+	</rng:define>
+	
+	<rng:define name="conditionType">
+		
+			<rng:zeroOrMore>
+<rng:element name="allCondition">
+<rng:ref name="allConditionType"/>
+</rng:element>
+</rng:zeroOrMore>
+			<rng:zeroOrMore>
+<rng:element name="anyCondition">
+<rng:ref name="anyConditionType"/>
+</rng:element>
+</rng:zeroOrMore>
+			<rng:zeroOrMore>
+<rng:element name="anyNotCondition">
+<rng:ref name="anyNotConditionType"/>
+</rng:element>
+</rng:zeroOrMore>
+			<rng:zeroOrMore>
+<rng:element name="notCondition">
+<rng:ref name="notConditionType"/>
+</rng:element>
+</rng:zeroOrMore>
+			<rng:zeroOrMore>
+<rng:element name="dateFilterStatement">
+<rng:ref name="dateFilterStatementType"/>
+</rng:element>
+</rng:zeroOrMore>
+			<rng:zeroOrMore>
+<rng:element name="stringFilterStatement">
+<rng:ref name="stringFilterStatementType"/>
+</rng:element>
+</rng:zeroOrMore>
+			<rng:zeroOrMore>
+<rng:element name="intFilterStatement">
+<rng:ref name="intFilterStatementType"/>
+</rng:element>
+</rng:zeroOrMore>
+		
+	</rng:define>
+
+	<rng:define name="allConditionType">
+		
+			<rng:ref name="conditionType"/>
+				
+			
+		
+	</rng:define>
+
+	<rng:define name="anyConditionType">
+		
+			<rng:ref name="conditionType"/>
+				
+			
+		
+	</rng:define>
+
+	<rng:define name="anyNotConditionType">
+		
+			<rng:ref name="conditionType"/>
+				
+			
+		
+	</rng:define>
+
+	<rng:define name="notConditionType">
+		
+			<rng:ref name="conditionType"/>
+				
+			
+		
+	</rng:define>
+
+	<rng:define name="filterStatementType">
+		
+			<rng:element name="fieldName">
+<rng:ref name="string"/>
+</rng:element>
+		
+	</rng:define>
+
+	<rng:define name="dateFilterStatementType">
+		
+			<rng:ref name="filterStatementType"/>
+				
+					<rng:element name="operator">
+<rng:ref name="dateOperatorType"/>
+</rng:element>
+					<rng:element name="fieldValue">
+<rng:ref name="date"/>
+</rng:element>
+				
+			
+		
+	</rng:define>
+
+	<rng:define name="dateOperatorType">
+		<rng:choice>
+			<rng:value>isBefore</rng:value>
+			<rng:value>isAfter</rng:value>
+			<rng:value>isEqual</rng:value>
+		</rng:choice>
+	</rng:define>
+
+	<rng:define name="intFilterStatementType">
+		
+			<rng:ref name="filterStatementType"/>
+				
+					<rng:element name="operator">
+<rng:ref name="intOperatorType"/>
+</rng:element>
+					<rng:element name="fieldValue">
+<rng:ref name="int"/>
+</rng:element>
+				
+			
+		
+	</rng:define>
+
+	<rng:define name="intOperatorType">
+		<rng:choice>
+			<rng:value>isEqual</rng:value>
+			<rng:value>isNotEqual</rng:value>
+			<rng:value>isLower</rng:value>
+			<rng:value>isGreater</rng:value>
+			<rng:value>isLowerEqual</rng:value>
+			<rng:value>isGreaterEqual</rng:value>
+		</rng:choice>
+	</rng:define>
+
+	<rng:define name="stringFilterStatementType">
+		
+			<rng:ref name="filterStatementType"/>
+				
+					<rng:element name="operator">
+<rng:ref name="stringOperatorType"/>
+</rng:element>
+					<rng:element name="fieldValue">
+<rng:ref name="string"/>
+</rng:element>
+				
+			
+		
+	</rng:define>
+
+	<rng:define name="stringOperatorType">
+		<rng:choice>
+			<rng:value>isEqual</rng:value>
+			<rng:value>isNotEqual</rng:value>
+			<rng:value>contains</rng:value>
+			<rng:value>doesNotContain</rng:value>
+			<rng:value>matches</rng:value>
+			<rng:value>startsWith</rng:value>
+			<rng:value>endsWith</rng:value>
+		</rng:choice>
+	</rng:define>
+</rng:grammar>

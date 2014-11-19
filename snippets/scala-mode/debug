@@ -1,0 +1,4 @@
+# contributor: Alexandre Meynaud
+# key: debug
+# --
+logger.debug("$0")

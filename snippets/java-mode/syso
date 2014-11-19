@@ -1,0 +1,4 @@
+# contributor: Alexandre Meynaud
+# key: syso
+# --
+System.out.println("$0");

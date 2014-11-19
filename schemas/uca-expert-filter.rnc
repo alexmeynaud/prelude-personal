@@ -1,0 +1,55 @@
+default namespace = "http://hp.com/uca/expert/filter"
+namespace rng = "http://relaxng.org/ns/structure/1.0"
+
+start |= filters
+filters =
+  element filters {
+    element topFilter { topFilterType }+
+  }
+topFilterType =
+  (element allCondition { allConditionType }
+   | element anyCondition { anyConditionType }
+   | element anyNotCondition { anyNotConditionType }
+   | element notCondition { notConditionType }),
+  attribute name { xsd:string }
+conditionType =
+  element allCondition { allConditionType }*,
+  element anyCondition { anyConditionType }*,
+  element anyNotCondition { anyNotConditionType }*,
+  element notCondition { notConditionType }*,
+  element dateFilterStatement { dateFilterStatementType }*,
+  element stringFilterStatement { stringFilterStatementType }*,
+  element intFilterStatement { intFilterStatementType }*
+allConditionType = conditionType
+anyConditionType = conditionType
+anyNotConditionType = conditionType
+notConditionType = conditionType
+filterStatementType = element fieldName { xsd:string }
+dateFilterStatementType =
+  filterStatementType,
+  element operator { dateOperatorType },
+  element fieldValue { xsd:date }
+dateOperatorType = "isBefore" | "isAfter" | "isEqual"
+intFilterStatementType =
+  filterStatementType,
+  element operator { intOperatorType },
+  element fieldValue { xsd:int }
+intOperatorType =
+  "isEqual"
+  | "isNotEqual"
+  | "isLower"
+  | "isGreater"
+  | "isLowerEqual"
+  | "isGreaterEqual"
+stringFilterStatementType =
+  filterStatementType,
+  element operator { stringOperatorType },
+  element fieldValue { xsd:string }
+stringOperatorType =
+  "isEqual"
+  | "isNotEqual"
+  | "contains"
+  | "doesNotContain"
+  | "matches"
+  | "startsWith"
+  | "endsWith"
