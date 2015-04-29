@@ -20,6 +20,18 @@
   (define-key nxml-mode-map "\C-cC-c" 'nxml-complete))
 (add-hook 'nxml-mode-hook 'nxml-custom-keybindings)
 
+;; Enable tags folding
+(add-to-list 'hs-special-modes-alist
+             '(nxml-mode
+               "<!--\\|<[^/>]*[^/]>"
+               "-->\\|</[^/>]*[^/]>"
+
+               "<!--"
+               sgml-skip-tag-forward
+               nil))
+
+
+(add-hook 'nxml-mode-hook 'hs-minor-mode)
 
 
 ;; (add-to-list 'auto-mode-alist

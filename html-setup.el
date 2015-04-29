@@ -33,6 +33,13 @@
 (add-hook 'css-mode-hook  'emmet-mode)
 (add-hook 'css-mode-hook 'ac-emmet-css-setup)
 
+;; Have AngularJS tags visible in imenu
+(eval-after-load 'web-mode
+  '(progn
+     ;; angular imenu
+     (add-to-list 'web-mode-imenu-regexp-list
+                  '(" \\(ng-[a-z]*\\)=\"\\([a-zA-Z0-9]*\\)" 1 2 "="))))
+
 
 ;; Lorem to insert latin text
 (prelude-require-package 'lorem-ipsum)

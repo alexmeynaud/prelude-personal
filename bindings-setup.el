@@ -8,11 +8,11 @@
 (global-set-key "\C-x\C-at" 'term)
 (global-set-key "\C-x\C-ao" 'goto-line)
 (global-set-key "\C-x\C-ar" 'rename-buffer)
+(global-set-key "\C-x\C-al" 'occur)
 
 ;;(global-set-key "\C-x\C-ai" (lambda () (interactive) (find-file "/home/alex/index.org")))
 (global-set-key "\C-x\C-ah" (lambda () (interactive) (find-file "/home/alex/howto")))
 ;(global-set-key "\C-x\C-ae" 'eshell)
-(global-set-key "\M-z" 'other-window)
 (global-set-key "\C-x\C-ac" 'compile)
 (global-set-key (kbd "s-c") 'compile)
 (global-set-key "\C-x\C-ag" 'grep)
@@ -24,7 +24,7 @@
 (global-set-key (kbd "C-;") 'comment-or-uncomment-region)
 (global-set-key "\C-x\C-aa" 'apropos)
 (global-set-key "\C-c\C-f" 'find-file-at-point)
-(global-set-key (kbd "M-s-o") 'occur)
+
 
 ;; Bind some useful prelude utility functions
 (global-set-key "\M-pc" 'prelude-copy-file-name-to-clipboard)

@@ -26,16 +26,16 @@
 
 ;; Javadoc in ensime
 ;; Javadoc for Neo4j
-(defun make-neo4j-doc-url (type &optional member)
-  (ensime-make-java-doc-url-helper
-    "file:///home/alex/Programs/Neo4j/neo4j-enterprise-1.7/doc/java/api" type member))
+;; (defun make-neo4j-doc-url (type &optional member)
+;;   (ensime-make-java-doc-url-helper
+;;     "file:///home/alex/Programs/Neo4j/neo4j-enterprise-1.7/doc/java/api" type member))
 
-(defun make-neo4j-graphdb-doc-url (type &optional member)
-  (ensime-make-java-doc-url-helper
-    "file:///home/alex/Programs/Neo4j/neo4j-enterprise-1.7/doc/java/api/org/neo4j/graphdb" type member))
+;; (defun make-neo4j-graphdb-doc-url (type &optional member)
+;;   (ensime-make-java-doc-url-helper
+;;     "file:///home/alex/Programs/Neo4j/neo4j-enterprise-1.7/doc/java/api/org/neo4j/graphdb" type member))
 
 
-(add-to-list 'ensime-doc-lookup-map '("^org\\.neo4j\\." . make-neo4j-doc-url))
-(add-to-list 'ensime-doc-lookup-map '("^org\\.neo4j\\.graphdb\\." . make-neo4j-graphdb-doc-url))
+;; (add-to-list 'ensime-doc-lookup-map '("^org\\.neo4j\\." . make-neo4j-doc-url))
+;; (add-to-list 'ensime-doc-lookup-map '("^org\\.neo4j\\.graphdb\\." . make-neo4j-graphdb-doc-url))
 
 (provide 'scala-setup)

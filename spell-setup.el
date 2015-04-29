@@ -1,5 +1,5 @@
 ;; Flyspell
-;(autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
+(autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
 (setq flyspell-sort-corrections nil)
 (global-set-key "\M-c" 'flyspell-auto-correct-word)  ;; was center-line
 ;; Spell automatically .org and txt files
