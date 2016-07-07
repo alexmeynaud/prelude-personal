@@ -42,3 +42,20 @@
 (prelude-require-package 'hungry-delete)
 (require 'hungry-delete)
 (global-hungry-delete-mode)
+
+
+;; Hungry delete mode
+(prelude-require-package 'whole-line-or-region)
+(require 'whole-line-or-region)
+
+(prelude-require-package 'beacon)
+(require 'beacon)
+(beacon-mode 1)
+(setq beacon-push-mark 35)
+(setq beacon-color "#666600")
+
+(prelude-require-package 'ag)
+(require 'ag)
+
+(prelude-require-package 'helm-ag)
+(require 'helm-ag)

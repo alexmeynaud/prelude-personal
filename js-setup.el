@@ -8,6 +8,9 @@
 ; use js2-mode for node files as well
 (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
 
+;; Support camelCase
+(add-hook 'js2-mode-hook 'subword-mode)
+(add-hook 'json-mode-hook 'subword-mode)
 
 ;; JS auto completion
 ;; (prelude-require-package 'ac-js2)
@@ -22,8 +25,10 @@
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'js2-mode-hook 'hs-minor-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)
+(add-hook 'css-mode-hook 'hs-minor-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
 (add-hook 'json-mode-hook 'hs-minor-mode)
+(add-hook 'json-mode 'flymake-json-load)
 
 ;; Tern
 (prelude-require-package 'tern)
@@ -76,6 +81,7 @@
 (require 'discover-js2-refactor)
 
 (js2r-add-keybindings-with-prefix "s-x")
+(add-hook 'js2-mode-hook #'js2-refactor-mode)
 
 ;; JSS
 ;; An emacs implementation of the client side protocol of webkit and

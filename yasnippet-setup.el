@@ -3,6 +3,7 @@
 (prelude-require-package 'yasnippet)
 (require 'yasnippet)
 (yas/global-mode 1)
+(setq yas/trigger-key "s-/")
 ;(setq yas/trigger-key "\C-x\C-ay")
 
 ;; Remap the expand key as TAB is overloaded in many other modes 

@@ -9,8 +9,8 @@
 
 (setq org-support-shift-select t)
 
-(setq org-log-done 'time) ; Record timestamp when closing TODO task
-(setq org-log-done 'note) ; Record timestamp when closing TODO task
+;;(setq org-log-done 'time) ; Record timestamp when closing TODO task
+;;(setq org-log-done 'note) ; Record timestamp when closing TODO task
 
 (setq browse-url-browser-function (quote browse-url-generic)) ; set default browser to be firefox
 (setq browse-url-generic-program "/usr/bin/firefox")
@@ -32,4 +32,10 @@
 
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((dot . t)))
+ '((dot . t)
+   (emacs-lisp . t)
+   (sh . t)
+   (ditaa . t)
+   ))
+
+(setq org-use-property-inheritance t)

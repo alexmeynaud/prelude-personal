@@ -19,10 +19,10 @@
 (global-set-key "\C-x\C-af" 'find-name-dired)
 (global-set-key "\C-x\C-ad" 'dirtree)
 (global-set-key "\C-x\C-am" 'magit-status)
-(global-set-key "\C-x\C-ab" 'ibuffer)
+(global-set-key "\C-x\C-ab" 'neotree)
 (global-set-key "\C-x\C-ap" 'proced)
 (global-set-key (kbd "C-;") 'comment-or-uncomment-region)
-(global-set-key "\C-x\C-aa" 'apropos)
+(global-set-key "\C-x\C-aa" 'helm-ag)
 (global-set-key "\C-c\C-f" 'find-file-at-point)
 
 
@@ -57,7 +57,7 @@
 (global-set-key (kbd "<f6>") 'hs-toggle-hiding)
 
 ;; Help: use prefix C-h
-(defun howto-open ()
+(defun open-howto ()
   (interactive)
   (ido-find-file-in-dir "~/howto"))
 

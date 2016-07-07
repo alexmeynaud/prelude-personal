@@ -1,8 +1,8 @@
 
 ;; Scala support
 ;; -------------
-(prelude-require-package 'scala-mode2)
-(require 'scala-mode2)
+;;(prelude-require-package 'scala-mode2)
+;;(require 'scala-mode2)
 
 ;; read .sbt files with scala mode
 (setq auto-mode-alist (cons '("\\.sbt$" . scala-mode) auto-mode-alist))

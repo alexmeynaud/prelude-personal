@@ -1,3 +1,5 @@
+(set-default-font "-simp-Hack-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1")
+
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 ;;(horizontal-scroll-bar-mode -1)
@@ -22,6 +24,20 @@
 
 
 ;; Powerline
-;(prelude-require-package 'powerline)
+(prelude-require-package 'powerline)
 ;(powerline-default-theme)
 ;(setq wg-mode-line-disable t)
+
+;; Golden ratio
+(prelude-require-package 'golden-ratio)
+(require 'golden-ratio)
+;(golden-ratio-mode 1)
+
+;;To prevent Golden Ratio mode to be activated for certain mode
+(setq golden-ratio-exclude-modes '("ediff-mode"
+                                   "eshell-mode"
+                                   "dired-mode"))
+(add-to-list 'golden-ratio-exclude-buffer-names " *NeoTree*")
+
+;; To prevent Emacs to create extra window instead of jumping to an already existing window
+(setq split-width-threshold nil)
