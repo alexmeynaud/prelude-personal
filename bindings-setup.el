@@ -24,6 +24,7 @@
 (global-set-key (kbd "C-;") 'comment-or-uncomment-region)
 (global-set-key "\C-x\C-aa" 'helm-ag)
 (global-set-key "\C-c\C-f" 'find-file-at-point)
+(global-set-key (kbd "C-M-<backspace>") 'c-hungry-delete-backwards)
 
 
 ;; Bind some useful prelude utility functions
@@ -56,6 +57,9 @@
 ;; Hide-Show toggling
 (global-set-key (kbd "<f6>") 'hs-toggle-hiding)
 
+;; Mocha
+(global-set-key "\C-c\C-m" 'mocha-test-project)
+
 ;; Help: use prefix C-h
 (defun open-howto ()
   (interactive)
@@ -83,3 +87,5 @@
 (global-set-key (kbd "C-.") 'find-tag)
 (global-set-key (kbd "C-,") 'tags-loop-continue)
 
+;; Google search
+(global-set-key (kbd "C-x g") 'google-this-mode-submap)

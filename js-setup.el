@@ -99,6 +99,11 @@
 (prelude-require-package 'karma)
 (require 'karma)
 
+(prelude-require-package 'mocha)
+(require 'mocha)
+
+(setq mocha-options "--recursive")
+
 (js2-imenu-extras-mode)
 
 ;; Start the server when we first open a js file and start checking
