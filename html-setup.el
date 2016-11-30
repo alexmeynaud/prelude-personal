@@ -8,7 +8,7 @@
 ;; Additional snippets for html5
 (add-to-list 'load-path "~/elisp/HTML5-YASnippet-bundle")
 ;; some time after yasnippet has been loaded execute this
-(require 'html5-snippets)
+;(require 'html5-snippets)
 
 ;; Add snippets for angularjs
 (prelude-require-package 'angular-snippets)

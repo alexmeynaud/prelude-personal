@@ -1,4 +1,4 @@
-(set-default-font "-simp-Hack-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1")
+;(set-default-font "-simp-Hack-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1")
 
 (tool-bar-mode -1)
 (scroll-bar-mode -1)

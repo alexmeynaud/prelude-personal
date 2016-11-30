@@ -11,7 +11,7 @@
    (message "Ah, much better!"))
 
 ;; NXML
-(push "~/.emacs.d/personal/schemas/schemas.xml" rng-schema-locating-files)
+;(push "~/.emacs.d/personal/schemas/schemas.xml" rng-schema-locating-files)
 (setq nxml-auto-insert-xml-declaration-flag t)
 (setq nxml-slash-auto-complete-flag t)
 (add-hook 'nxml-mode-hook 'turn-on-auto-fill)

@@ -1,5 +1,6 @@
+(prelude-require-package 'eclim)
 (prelude-require-package 'company)
-(prelude-require-package 'emacs-eclim)
+(prelude-require-package 'company-emacs-eclim)
 
 ;; Understand Java compilation error
 (require 'compile)
@@ -15,7 +16,14 @@
 ;; Eclim
 (require 'eclim)
 (require 'eclimd)
-(global-eclim-mode)
+(add-hook 'java-mode-hook 'eclim-mode)
+;;(global-eclim-mode)
+(company-emacs-eclim-setup)
+;;(define-key eclim-mode-map (kbd "C-c C-c") 'eclim-problems-correct)
+
+(custom-set-variables
+ '(eclim-eclipse-dirs '("~/Programs/eclipse/eclipse"))
+ '(eclim-executable "~/Programs/eclipse/eclipse/eclim"))
 
 ;; Manage eclim deamon from emacs
 ;(require 'eclimd)
@@ -32,12 +40,12 @@
 ;(ac-config-default)
 
 ;; add the emacs-eclim source
-(require 'ac-emacs-eclim-source)
-(ac-emacs-eclim-config)
+;;(require 'ac-emacs-eclim-source)
+;;(ac-emacs-eclim-config)
 
-(define-prefix-command 'eclim-map)
-(global-set-key (kbd "C-c e") 'eclim-map)
-(define-key eclim-map (kbd "p") 'eclim-manage-projects)
+;;(define-prefix-command 'eclim-map)
+;;(global-set-key (kbd "C-c e") 'eclim-map)
+;;(define-key eclim-map (kbd "p") 'eclim-manage-projects)
 
 
 (provide 'java-setup)

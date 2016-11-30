@@ -59,3 +59,6 @@
 
 (prelude-require-package 'helm-ag)
 (require 'helm-ag)
+
+(setq package-check-signature nil)
+(require 'ido-ubiquitous)
