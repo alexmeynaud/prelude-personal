@@ -33,7 +33,10 @@
 
 (add-hook 'nxml-mode-hook 'hs-minor-mode)
 
-
+;; Auto loading
+(add-to-list 'auto-mode-alist
+             (cons (concat "\\." (regexp-opt '("xml" "xsd" "sch" "rng" "xslt"  "rss") t) "\\'")
+                   'nxml-mode))
 ;; (add-to-list 'auto-mode-alist
 ;;              (cons (concat "\\." (regexp-opt '("xml" "xsd" "sch" "rng" "xslt" "svg" "rss") t) "\\'")
 ;;                    'nxml-mode))

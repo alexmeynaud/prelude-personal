@@ -28,6 +28,10 @@
 (prelude-require-package 'ac-emmet)
 (require 'ac-emmet)
 
+;; (prelude-require-package 'htmlize)
+;; (require 'htmlize)
+
+
 (add-hook 'web-mode-hook  'emmet-mode)
 (add-hook 'web-mode-hook 'ac-emmet-html-setup)
 (add-hook 'css-mode-hook  'emmet-mode)

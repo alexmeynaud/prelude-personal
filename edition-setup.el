@@ -43,10 +43,14 @@
 (require 'hungry-delete)
 (global-hungry-delete-mode)
 
-
-;; Hungry delete mode
+;; Kill whole line
 (prelude-require-package 'whole-line-or-region)
 (require 'whole-line-or-region)
+
+;; Google search!
+(prelude-require-package 'google-this)
+(require 'google-this)
+(google-this-mode 1)
 
 (prelude-require-package 'beacon)
 (require 'beacon)
