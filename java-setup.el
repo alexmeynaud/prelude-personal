@@ -47,5 +47,7 @@
 ;;(global-set-key (kbd "C-c e") 'eclim-map)
 ;;(define-key eclim-map (kbd "p") 'eclim-manage-projects)
 
+;; Enable hide-show mode by default
+(add-hook 'java-mode-hook 'hs-minor-mode)
 
 (provide 'java-setup)

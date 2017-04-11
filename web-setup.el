@@ -36,5 +36,8 @@
 ;; add to hook
 (add-hook 'web-mode-hook 'my-web-mode-keys)
 
+;; For restclient
+(setq restclient-inhibit-cookies t)
+
 (provide 'web-setup)
 ;;; web-setup ends here

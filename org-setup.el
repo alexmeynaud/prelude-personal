@@ -39,3 +39,6 @@
    ))
 
 (setq org-use-property-inheritance t)
+(require 'ox-md)
+
+(setq org-export-backends (quote (ascii html icalendar latex md)))

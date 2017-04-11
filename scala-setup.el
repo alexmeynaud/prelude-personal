@@ -24,6 +24,9 @@
 ;; if you're not using the standard scala mode.
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
+;; Use javascript mode for HOCON (.conf) files
+(add-to-list 'auto-mode-alist '("\\.hocon\\'" . javascript-mode))
+
 ;; Javadoc in ensime
 ;; Javadoc for Neo4j
 ;; (defun make-neo4j-doc-url (type &optional member)

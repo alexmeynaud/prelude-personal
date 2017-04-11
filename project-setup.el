@@ -9,6 +9,6 @@
 ;; projectile can slow down tramp a lot -> always use the same name for projects!
 (setq projectile-mode-line "Projectile")
 
-(setq projectile-project-root-files '())
+(setq projectile-project-root-files '("pom.xml"))
 (setq projectile-project-root-files-bottom-up '(".git"))
 (setq projectile-project-root-files-top-down-recurring '(".svn"))
