@@ -30,12 +30,16 @@
 (setq org-refile-targets (quote ((nil :maxlevel . 9)
                                  (org-agenda-files :maxlevel . 9))))
 
+(prelude-require-package 'ob-restclient)
+(require 'ob-restclient)
+
+
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((dot . t)
    (emacs-lisp . t)
-   (sh . t)
    (ditaa . t)
+   (restclient . t)
    ))
 
 (setq org-use-property-inheritance t)

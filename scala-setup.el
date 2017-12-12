@@ -4,6 +4,9 @@
 ;;(prelude-require-package 'scala-mode2)
 ;;(require 'scala-mode2)
 
+(prelude-require-package 'scala-mode)
+(require 'scala-mode)
+
 ;; read .sbt files with scala mode
 (setq auto-mode-alist (cons '("\\.sbt$" . scala-mode) auto-mode-alist))
 
@@ -22,7 +25,7 @@
 ;; This step causes the ensime-mode to be started whenever
 ;; scala-mode is started for a buffer. You may have to customize this step
 ;; if you're not using the standard scala mode.
-(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+;(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
 ;; Use javascript mode for HOCON (.conf) files
 (add-to-list 'auto-mode-alist '("\\.hocon\\'" . javascript-mode))

@@ -3,8 +3,8 @@
 (prelude-require-package 'clojure-cheatsheet)
 (require 'clojure-cheatsheet)
 
-(prelude-require-package 'clj-refactor)
-(require 'clj-refactor)
+;; (prelude-require-package 'clj-refactor)
+;; (require 'clj-refactor)
 
 (eval-after-load 'clojure-mode
   '(progn
