@@ -13,10 +13,10 @@
 
 ;; Make zooming affect frame instead of buffers
 ;; Assign key bindings as for firefox
-(prelude-require-package 'zoom-frm)
-(require'zoom-frm)
-(global-set-key [(control ?+)]  'zoom-frm-in)   ; `C-+'
-(global-set-key [(control ?-)]  'zoom-frm-out)  ; `C--'
+;(prelude-require-package 'zoom-frm)
+;(require'zoom-frm)
+;(global-set-key [(control ?+)]  'zoom-frm-in)   ; `C-+'
+;(global-set-key [(control ?-)]  'zoom-frm-out)  ; `C--'
 
 
 ;;You can call list-colors-display to list colors and their RGB hex values. But the result is not sorted. Now, you can sort it by hue.
